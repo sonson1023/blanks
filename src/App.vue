@@ -1,10 +1,30 @@
 <template>
   <div id="app">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="./assets/school.png" width="28" height="28" />
+        </a>
+      </div>
+    </nav>
+    <section class="hero is-primary is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">!!!</h1>
+        </div>
+      </div>
+    </section>
     <div id="nav">
-      <!-- <router-link to="/">Home</router-link> | -->
-      <!--<router-link to="/about">About</router-link>-->
+      <router-link to="/">Home</router-link>|
+      <router-link to="/about">About me</router-link>
     </div>
-    <router-view/>
+    <router-view />
+    <!--     
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>-</p>
+      </div>
+    </footer>-->
   </div>
 </template>
 
