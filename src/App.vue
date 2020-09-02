@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
+        <a class="navbar-item" href="http://make-blanks.com">
           <img src="./assets/school.png" width="28" height="28" />
         </a>
       </div>
