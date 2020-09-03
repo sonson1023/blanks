@@ -37,7 +37,7 @@
             class="textarea is-info"
             placeholder="e.g. Hello world"
             v-model="textTarget"
-            disabled
+            readonly
           ></textarea>
         </div>
       </div>
