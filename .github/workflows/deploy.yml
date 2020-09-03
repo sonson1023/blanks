@@ -19,27 +19,18 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - name: node.js!
-        uses: actions/setup-node@1
-      - run: npm i
-      - run: npm run build --if-present
-        
-        
-      - name : Copy file via scp
-        uses: appleboy/scp-action@master
-        with:
+      # Runs ssh deploy for CI, CD
+      - name : executing remote ssh commands
+        uses : appleboy/ssh-action@master
+        with : 
           HOST: ${{secrets.HOST}}
           USERNAME: ${{secrets.USERNAME}}
           PORT: ${{secrets.PORT}}
           KEY: ${{secrets.SSHKEY}}                
-          source: "."
-          target: "/var/www/wrt/dist"
+          script: |
+            cd ${{secrets.WEB_PATH}}
+            sudo npm install
+            sudo npm run build
+            pwd
           
-      - name: Executing remote command
-        uses: appleboy/ssh-action@master
-        with:
-          HOST: ${{ secrets.HOST }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PORT: ${{ secrets.PORT }}
-          KEY: ${{ secrets.SSHKEY }}
-          script: whoami
+       
