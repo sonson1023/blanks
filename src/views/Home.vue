@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="container is-fluid mb-4">
-        <p class="title">필터 단어</p>
+        <p class="title">필터 단어1</p>
         <div class="container">
           <textarea
             class="textarea is-info"
@@ -73,7 +73,7 @@ export default {
   data() {
     return {
       textSource:
-        "South Korea's battle with the virus is being hampered in part by the refusal of some churches to heed requests to halt face-to-face religious services until the crisis is under control, compounded by a three-day strike by doctors. Analysts also say, however, that the government was 'over-confident' that it had the crisis under control after it won plaudits around the world for its response to the original outbreak in the spring. Health officials reported 441 new cases across the country on Thursday, the highest daily figure since March. That figure fell to 371 additional cases on Friday, although the daily total has remained in triple figures for more than two weeks. The majority of new infections are in Seoul and the surrounding region, home to more than half of the nation's 51 million population. ",
+        "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,",
       textFilter:
         "i, on, about, by, with, you, they, he, she, it, for, in, that, him, her, me, us, a, the",
       textTarget: "-",
