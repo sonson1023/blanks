@@ -29,10 +29,10 @@ jobs:
           KEY: ${{secrets.SSHKEY}}                
           source: "."
           target: "./web_temp"
-          script: |
-            npm i
-            npm run build
-            pwd
+#          script: |
+#            npm i
+#            npm run build
+#            pwd
           
       - name: Executing remote command
         uses: appleboy/ssh-action@master
