@@ -45,5 +45,6 @@ jobs:
             cd ./web_temp
             npm i
             npm run build
-            pwd
+            sudo cp -r dist/ /var/www/wrt/dist
+            
             
