@@ -41,4 +41,9 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          script: whoami
+          script: |
+            cd ./web_temp
+            npm i
+            npm run build
+            pwd
+            
