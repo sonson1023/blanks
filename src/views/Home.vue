@@ -1,18 +1,26 @@
 <template>
   <section class="section">
     <div class="container is-fullhd">
-      <h1 class="title">빈칸만들기</h1>
+      <h1 class="title">빈칸 만들기</h1>
       <p class="subtitle">
-        <strong>빈칸</strong> 만들어서 공부하세요!!
+        <strong>빈칸 만들어서 공부하세요!!</strong>
       </p>
       <div class="container is-fluid mb-4">
-        <p class="title">Source</p>
+        <p class="title">
+          Source
+          <span class="tag is-warning is-medium">
+            Clear
+            <button class="delete is-small" v-on:click="clearSource"></button>
+          </span>
+        </p>
         <div class="container">
-          <textarea class="textarea is-info" placeholder="e.g. Hello world" v-model="textSource"></textarea>
+          <div class="control">
+            <textarea class="textarea is-info" placeholder v-model="textSource"></textarea>
+          </div>
         </div>
       </div>
       <div class="container is-fluid mb-4">
-        <p class="title">필터 단어1</p>
+        <p class="title">필터 단어</p>
         <div class="container">
           <textarea
             class="textarea is-info"
@@ -81,6 +89,9 @@ export default {
     };
   },
   methods: {
+    clearSource: function clearSource() {
+      this.textSource = "";
+    },
     makeblank: function makeblank() {
       var texts = this.textSource.split(".");
       var values1;
