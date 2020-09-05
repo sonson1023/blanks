@@ -1,11 +1,9 @@
 <template>
   <section class="section">
     <div class="container is-fullhd">
-      <h1 class="title">빈칸 만들기</h1>
-      <p class="subtitle">
-        <strong>빈칸 만들어서 공부하세요!!</strong>
-      </p>
-      <div class="container is-fluid mb-4">
+      <h1 class="title">빈칸 만들어서 공부하세요!!</h1>
+
+      <div class="container is-fluid mb-2">
         <p class="title">
           Source
           <span class="tag is-warning is-medium">
@@ -20,7 +18,7 @@
         </div>
       </div>
       <div class="container is-fluid mb-4">
-        <p class="title">필터 단어</p>
+        <p class="title">필터 금지 단어</p>
         <div class="container">
           <textarea
             class="textarea is-info"
@@ -53,8 +51,23 @@
                 <option>80%</option>
               </select>
             </div>
-            <a class="button is-primary mx-1" v-on:click="makeblank">Button</a>
+            <a class="button is-success mx-1" v-on:click="makeblank">필터</a>
+            <a class="button is-info mx-1" v-on:click="saveSentence">Source 문장 저장</a>
+            <a class="button is-info mx-1" v-on:click="loadSentence">Source 문장 불러오기</a>
           </div>
+        </div>
+      </div>
+      <div v-if="isInfoMsg" class="dim">
+        <div class="notification is-primary is-light msg">
+          <button class="delete" v-on:click="closeAlert"></button>
+          <p style="margin:10%">{{infoMessage}}</p>
+        </div>
+      </div>
+
+      <div v-if="isErorMsg" class="dim">
+        <div class="notification is-danger is-light msg">
+          <button class="delete" v-on:click="closeAlert"></button>
+          <p>{{errorMessage}}</p>
         </div>
       </div>
 
@@ -86,6 +99,10 @@ export default {
         "i, on, about, by, with, you, they, he, she, it, for, in, that, him, her, me, us, a, the",
       textTarget: "-",
       blankPer: "15%",
+      isInfoMsg: false,
+      isErorMsg: false,
+      infoMessage: "",
+      errorMessage: "",
     };
   },
   methods: {
@@ -122,7 +139,7 @@ export default {
           //check filter word
           var checkFilterWord = editedText[index];
 
-          //필터용 단어라면
+          //필터용 단어라면 pass or change
           if (filters.includes(checkFilterWord) != true) {
             editedText[index] = "(____)";
           }
@@ -138,6 +155,69 @@ export default {
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min;
     },
+    loadSentence: function loadSentence() {
+      try {
+        var storage = localStorage;
+        var text = storage.getItem("sentence");
+        if (text != null) {
+          this.showInfoAlert("성공");
+          this.textSource = text;
+        } else {
+          this.showInfoAlert("저장된 문장이 없습니다.");
+        }
+      } catch (e) {
+        this.showErrAlert("불러오기 실패");
+      }
+    },
+    saveSentence: function saveSentence() {
+      try {
+        var storage = localStorage;
+        storage.setItem("sentence", this.textSource);
+      } catch (e) {
+        this.showErrAlert("저장에 실패했습니다.");
+      }
+      this.showInfoAlert("저장되었습니다.");
+    },
+    showInfoAlert: function showInfoAlert(text) {
+      this.infoMessage = text;
+      this.isInfoMsg = true;
+    },
+    showErrAlert: function showErrAlert(text) {
+      this.errorMessage = text;
+      this.isErorMsg = true;
+    },
+    closeAlert: function closeAlert(id) {
+      this.isInfoMsg = false;
+      this.isErorMsg = false;
+    },
   },
 };
 </script>
+
+<style scoped>
+.dim {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100 !important;
+  background-color: black;
+  filter: alpha(opacity=75); /* internet explorer */
+  -khtml-opacity: 0.75; /* khtml, old safari */
+  -moz-opacity: 0.75; /* mozilla, netscape */
+  opacity: 0.75; /* fx, safari, opera */
+}
+
+.dim .msg {
+  display: inline-block;
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+</style>
