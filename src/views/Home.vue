@@ -42,19 +42,20 @@
 
       <div class="container">
         <div class>
-          <div class>
-            <div class="select mx-1">
-              <select v-model="blankPer">
-                <option>15%</option>
-                <option>30%</option>
-                <option>50%</option>
-                <option>80%</option>
-              </select>
-            </div>
-            <a class="button is-success mx-1" v-on:click="makeblank">필터</a>
-            <a class="button is-info mx-1" v-on:click="saveSentence">Source 문장 저장</a>
-            <a class="button is-info mx-1" v-on:click="loadSentence">Source 문장 불러오기</a>
+          <div class="select m-2">
+            <select v-model="blankPer">
+              <option>15%</option>
+              <option>30%</option>
+              <option>50%</option>
+              <option>80%</option>
+            </select>
           </div>
+          <a class="button is-success mb-2" v-on:click="makeblank">필터</a>
+        </div>
+
+        <div class="mx-3">
+          <div class="button is-info mx-1 my-1" v-on:click="saveSentence">Source 문장 저장</div>
+          <div class="button is-info mx-1 my-1" v-on:click="loadSentence">Source 문장 불러오기</div>
         </div>
       </div>
       <div v-if="isInfoMsg" class="dim">
