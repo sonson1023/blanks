@@ -19,6 +19,9 @@
       <router-link to="/about">About me</router-link>
     </div>
     <router-view />
+    <div class="sitemap">
+      <a href="/sitemap.xml" download></a>
+    </div>
     <!--     
     <footer class="footer">
       <div class="content has-text-centered">
@@ -48,5 +51,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.siteMap {
+  display: none;
 }
 </style>
