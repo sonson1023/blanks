@@ -106,6 +106,9 @@ export default {
       errorMessage: "",
     };
   },
+  beforeMount() {
+    this.initLoadSentence();
+  },
   methods: {
     clearSource: function clearSource() {
       this.textSource = "";
@@ -155,6 +158,15 @@ export default {
       min = Math.ceil(min);
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min)) + min;
+    },
+    initLoadSentence: function initLoadSentence() {
+      try {
+        var storage = localStorage;
+        var text = storage.getItem("sentence");
+        if (text != null) {
+          this.textSource = text;
+        }
+      } catch (e) {}
     },
     loadSentence: function loadSentence() {
       try {
