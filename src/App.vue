@@ -5,6 +5,8 @@
         <a class="navbar-item" href="http://www.make-blanks.com/">
           <img src="./assets/school.png" width="28" height="28" />
         </a>
+        <router-link to="/" class="navbar-item">Home</router-link>
+        <router-link to="/about" class="navbar-item">About Me</router-link>
       </div>
     </nav>
     <section class="hero is-primary is-primary is-bold">
@@ -14,10 +16,10 @@
         </div>
       </div>
     </section>
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link>|
       <router-link to="/about">About me</router-link>
-    </div>
+    </div>-->
     <router-view />
     <div class="sitemap">
       <a href="/sitemap.xml" download></a>
