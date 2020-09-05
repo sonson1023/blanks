@@ -1,9 +1,9 @@
 <template>
   <section class="section">
-    <div class="container is-fullhd">
-      <h1 class="title">빈칸 만들어서 공부하세요!!</h1>
+    <div class="columns is-fullhd">
+      <!-- <h1 class="title">빈칸 만들어서 공부하세요!!</h1> -->
 
-      <div class="container is-fluid mb-2">
+      <div class="column is-fluid mb-2">
         <p class="title">
           Source
           <span class="tag is-warning is-medium">
@@ -12,68 +12,68 @@
           </span>
         </p>
         <div class="container">
-          <div class="control">
-            <textarea class="textarea is-info" placeholder v-model="textSource"></textarea>
-          </div>
+          <textarea class="textarea is-info" placeholder v-model="textSource" rows="20"></textarea>
         </div>
       </div>
-      <div class="container is-fluid mb-4">
-        <p class="title">필터 금지 단어</p>
-        <div class="container">
-          <textarea
-            class="textarea is-info"
-            placeholder="e.g. Hello world"
-            v-model="textFilter"
-            rows="2"
-          ></textarea>
-        </div>
-      </div>
-      <div class="container is-fluid mb-4">
+
+      <div class="column is-fluid mb-2">
         <p class="title">결과</p>
         <div class="container">
           <textarea
             class="textarea is-info"
             placeholder="e.g. Hello world"
             v-model="textTarget"
+            rows="20"
             readonly
           ></textarea>
         </div>
       </div>
-
-      <div class="container">
-        <div class>
-          <div class="select m-2">
-            <select v-model="blankPer">
-              <option>15%</option>
-              <option>30%</option>
-              <option>50%</option>
-              <option>80%</option>
-            </select>
-          </div>
-          <a class="button is-success mb-2" v-on:click="makeblank">필터</a>
-        </div>
-
-        <div class="mx-3">
-          <div class="button is-info mx-1 my-1" v-on:click="saveSentence">Source 문장 저장</div>
-          <div class="button is-info mx-1 my-1" v-on:click="loadSentence">Source 문장 불러오기</div>
-        </div>
-      </div>
-      <div v-if="isInfoMsg" class="dim">
-        <div class="notification is-primary is-light msg">
-          <button class="delete" v-on:click="closeAlert"></button>
-          <p style="margin:10%">{{infoMessage}}</p>
-        </div>
-      </div>
-
-      <div v-if="isErorMsg" class="dim">
-        <div class="notification is-danger is-light msg">
-          <button class="delete" v-on:click="closeAlert"></button>
-          <p>{{errorMessage}}</p>
-        </div>
-      </div>
-
-      <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     </div>
+    <div class="container is-fluid mb-2 mt-2">
+      <p class="title">필터 금지 단어</p>
+      <div class="container">
+        <textarea
+          class="textarea is-info"
+          placeholder="e.g. Hello world"
+          v-model="textFilter"
+          rows="1"
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class>
+        <div class="select m-2">
+          <select v-model="blankPer">
+            <option>15%</option>
+            <option>30%</option>
+            <option>50%</option>
+            <option>80%</option>
+          </select>
+        </div>
+        <a class="button is-success mb-2" v-on:click="makeblank">필터</a>
+      </div>
+
+      <div class="mx-3">
+        <div class="button is-info mx-1 my-1" v-on:click="saveSentence">Source 문장 저장</div>
+        <div class="button is-info mx-1 my-1" v-on:click="loadSentence">Source 문장 불러오기</div>
+      </div>
+    </div>
+    <div v-if="isInfoMsg" class="dim">
+      <div class="notification is-primary is-light msg">
+        <button class="delete" v-on:click="closeAlert"></button>
+        <p style="margin:10%">{{infoMessage}}</p>
+      </div>
+    </div>
+
+    <div v-if="isErorMsg" class="dim">
+      <div class="notification is-danger is-light msg">
+        <button class="delete" v-on:click="closeAlert"></button>
+        <p>{{errorMessage}}</p>
+      </div>
+    </div>
+
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
   </section>
   <!--
   <div class="home">
