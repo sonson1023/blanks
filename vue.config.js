@@ -5,7 +5,7 @@ module.exports = {
     pages: {
         index: {
             entry: 'src/main.js',
-            title: '빈칸으로 공부해요'
+            title: '빈칸 만들기'
         }
     }
 }

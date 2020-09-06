@@ -118,7 +118,7 @@ export default {
       var values1;
 
       var filters = this.textFilter.replace(/ /gi, "").split(",");
-      console.log(filters);
+      // console.log(filters);
 
       for (var j = 0; j < texts.length; j++) {
         var text = texts[j];
