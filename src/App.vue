@@ -6,6 +6,7 @@
           <img src="./assets/school.png" width="28" height="28" />
         </a>
         <router-link to="/" class="navbar-item">Home</router-link>
+
         <router-link to="/about" class="navbar-item">About Me</router-link>
       </div>
     </nav>
